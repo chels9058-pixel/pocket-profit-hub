@@ -1,1 +1,189 @@
 
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pocket Profit Hub</title>
+  <style>
+    :root {
+      --ink: #18352d;
+      --muted: #64776e;
+      --green: #176b4b;
+      --lime: #d8f279;
+      --paper: #f5f7f1;
+      --white: #fff;
+      --line: #e3e9df;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font: 16px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+    a { color: var(--green); }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      max-width: 1120px;
+      margin: auto;
+      padding: 22px 24px;
+    }
+    .brand { font-size: 1.2rem; font-weight: 800; }
+    .brand span { color: var(--green); }
+    nav { display: flex; flex-wrap: wrap; gap: 18px; }
+    nav a { color: var(--ink); text-decoration: none; font-weight: 650; }
+    main { max-width: 1120px; margin: auto; padding: 16px 24px 60px; }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.4fr .8fr;
+      gap: 28px;
+      align-items: center;
+      padding: 42px;
+      border-radius: 28px;
+      background: var(--green);
+      color: white;
+    }
+    .eyebrow { color: var(--lime); font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
+    h1 { max-width: 650px; margin: 8px 0 14px; font-size: clamp(2.2rem, 6vw, 4rem); line-height: 1.05; }
+    .hero p { max-width: 600px; color: #e4f2e9; }
+    .hero-card { padding: 24px; border-radius: 20px; background: #ffffff15; }
+    .hero-card strong { display: block; font-size: 1.25rem; }
+    section { margin-top: 42px; }
+    h2 { margin-bottom: 6px; font-size: 1.7rem; }
+    .intro { margin-top: 0; color: var(--muted); }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .card {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--white);
+    }
+    .card h3 { margin: 6px 0; }
+    .icon { font-size: 1.7rem; }
+    .card p { color: var(--muted); }
+    .card a { font-weight: 700; }
+    .calculator { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    label { display: block; margin: 12px 0 5px; font-weight: 700; }
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #cbd7cc;
+      border-radius: 10px;
+      font: inherit;
+    }
+    .result {
+      display: grid;
+      align-content: center;
+      min-height: 220px;
+      padding: 24px;
+      border-radius: 18px;
+      background: #e9f3db;
+    }
+    .result strong { color: var(--green); font-size: 2rem; }
+    footer { padding: 28px 24px; color: var(--muted); text-align: center; }
+    @media (max-width: 760px) {
+      header { align-items: flex-start; flex-direction: column; }
+      .hero, .calculator { grid-template-columns: 1fr; }
+      .hero { padding: 28px; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">🌱 Pocket <span>Profit Hub</span></div>
+    <nav aria-label="Main navigation">
+      <a href="#opportunities">Income ideas</a>
+      <a href="#budget">Budget</a>
+      <a href="#career">Career</a>
+      <a href="#business">Business</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Small steps. Stronger finances.</div>
+        <h1>Make your next money move with confidence.</h1>
+        <p>Explore practical ways to earn, plan a simple budget, and find tools to help you move forward.</p>
+      </div>
+      <div class="hero-card">
+        <strong>Your hub for what’s next</strong>
+        <p>Choose one idea, make a plan, and build momentum at your own pace.</p>
+        <a href="#opportunities" style="color:#d8f279">Explore the hub ↓</a>
+      </div>
+    </section>
+
+    <section id="opportunities">
+      <h2>Income opportunities</h2>
+      <p class="intro">A few flexible ideas to research and explore.</p>
+      <div class="grid">
+        <article class="card"><div class="icon">🧰</div><h3>Offer a service</h3><p>Try tutoring, pet sitting, organizing, or another skill people nearby need.</p></article>
+        <article class="card"><div class="icon">💻</div><h3>Freelance online</h3><p>Explore writing, design, bookkeeping, or virtual assistant work. Check fees and terms first.</p></article>
+        <article class="card"><div class="icon">📦</div><h3>Sell something</h3><p>List handmade goods or items you no longer use. Include platform fees in your price.</p></article>
+      </div>
+    </section>
+
+    <section id="budget">
+      <h2>Quick budget calculator</h2>
+      <p class="intro">Enter monthly amounts to estimate what remains after expenses.</p>
+      <div class="calculator">
+        <div class="card">
+          <label for="income">Monthly take-home income ($)</label>
+          <input id="income" type="number" min="0" placeholder="3000">
+          <label for="needs">Needs and bills ($)</label>
+          <input id="needs" type="number" min="0" placeholder="1800">
+          <label for="other">Other spending and savings ($)</label>
+          <input id="other" type="number" min="0" placeholder="700">
+        </div>
+        <div class="result" aria-live="polite">
+          <span>Estimated money left</span>
+          <strong id="remaining">$0.00</strong>
+          <span id="budgetNote">Add your amounts to see an estimate.</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="career">
+      <h2>Career resources</h2>
+      <p class="intro">Start with free, trusted resources for your next career step.</p>
+      <div class="grid">
+        <article class="card"><div class="icon">📝</div><h3>Build a resume</h3><p>List your experience, skills, and results. Tailor the details to each role.</p><a href="https://www.careeronestop.org/Toolkit/Resumes/resume-guide.aspx">Resume guide ↗</a></article>
+        <article class="card"><div class="icon">🔎</div><h3>Explore careers</h3><p>Compare job duties, training, and outlook before choosing a path.</p><a href="https://www.careeronestop.org/ExploreCareers/ExploreCareers.aspx">Explore careers ↗</a></article>
+        <article class="card"><div class="icon">🎓</div><h3>Find training</h3><p>Look for education and training options that fit your goals and budget.</p><a href="https://www.careeronestop.org/FindTraining/find-training.aspx">Find training ↗</a></article>
+      </div>
+    </section>
+
+    <section id="business">
+      <h2>Business tools</h2>
+      <p class="intro">Useful first steps for turning an idea into a plan.</p>
+      <div class="grid">
+        <article class="card"><div class="icon">🗺️</div><h3>Plan your idea</h3><p>Define your customer, what you offer, and how you’ll reach people.</p><a href="https://www.sba.gov/business-guide/plan-your-business">SBA planning guide ↗</a></article>
+        <article class="card"><div class="icon">🧮</div><h3>Estimate startup costs</h3><p>List one-time and monthly expenses before you invest in a new venture.</p><a href="https://www.sba.gov/business-guide/plan-your-business/calculate-your-startup-costs">Cost worksheet ↗</a></article>
+        <article class="card"><div class="icon">📚</div><h3>Learn the basics</h3><p>Explore small-business guidance from the U.S. Small Business Administration.</p><a href="https://www.sba.gov/business-guide">Business guide ↗</a></article>
+      </div>
+    </section>
+  </main>
+
+  <footer>Pocket Profit Hub · Take the next step that works for you.</footer>
+
+  <script>
+    const fields = ["income", "needs", "other"];
+    function updateBudget() {
+      const values = fields.map(id => Number(document.getElementById(id).value) || 0);
+      const remaining = values[0] - values[1] - values[2];
+      document.getElementById("remaining").textContent =
+        remaining.toLocaleString("en-US", { style: "currency", currency: "USD" });
+      document.getElementById("budgetNote").textContent =
+        remaining < 0 ? "Your expenses are higher than the income entered." :
+        values[0] ? "This is an estimate based on the amounts you entered." :
+        "Add your amounts to see an estimate.";
+    }
+    fields.forEach(id => document.getElementById(id).addEventListener("input", updateBudget));
+  </script>
+</body>
+</html>
